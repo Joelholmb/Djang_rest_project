@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django Project{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books/styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'index' %}">Tillbaka till startsidan</a>
+    {% block content %}{% endblock %}
+</body>
+</html>

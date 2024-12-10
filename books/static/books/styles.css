@@ -1,0 +1,69 @@
+/* Global styling för hela sidan */
+body {
+    font-family: Arial, sans-serif; /* Font för text */
+    background-color: #6161d6; /* Bakgrundsfärg */
+    color: #333; /* Standard textfärg */
+    margin: 0; /* Ingen marginal runt kroppen */
+    padding: 0; /* Ingen padding runt kroppen */
+}
+
+/* H1-rubriker (största rubriken) */
+h1 {
+    color: #333; /* Textfärg för rubriker */
+    font-size: 24px; /* Storlek på rubriken */
+    margin-bottom: 20px; /* Utrymme under rubriken */
+}
+
+/* Paragrafer (vanlig text) */
+p {
+    font-size: 18px; /* Storlek på text */
+    line-height: 1.6; /* Radavstånd */
+    margin: 10px 0; /* Utrymme ovan och under texten */
+}
+
+/* Styling för länkar */
+a {
+    display: inline-block; /* Gör länkar till knappliknande element */
+    margin-top: 20px; /* Utrymme ovanför länken */
+    text-decoration: none; /* Ta bort understrykning */
+    color: #ffffff; /* Textfärg */
+    background-color: #007BFF; /* Bakgrundsfärg */
+    padding: 10px 15px; /* Inre marginaler för knappen */
+    border-radius: 5px; /* Rundade hörn */
+}
+
+/* När muspekaren hovrar över länken */
+a:hover {
+    background-color: #0056b3; /* Ändra bakgrundsfärg vid hover */
+}
+
+/* Tabellstyling */
+table {
+    width: 100%; /* Tabell breddas till hela sidan */
+    border-collapse: collapse; /* Ta bort dubbel kantlinje */
+    margin: 20px 0; /* Utrymme ovan och under tabellen */
+    font-size: 18px; /* Textstorlek i tabellen */
+    text-align: left; /* Justera text till vänster */
+}
+
+/* Styling för celler (kolumner och rader) */
+th, td {
+    border: 1px solid #ddd; /* Tunn kantlinje runt cellerna */
+    padding: 8px; /* Inre marginal i cellerna */
+}
+
+/* Rubrikceller (översta raden i tabellen) */
+th {
+    background-color: #f4f4f4; /* Ljus bakgrund för rubriker */
+    color: #333; /* Textfärg för rubriker */
+}
+
+/* Varannan rad i tabellen (för kontrast) */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Ljusgrå bakgrund */
+}
+
+/* När muspekaren hovrar över en rad */
+tr:hover {
+    background-color: #2a0864; /* Ändra bakgrundsfärg vid hover */
+}
