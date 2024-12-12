@@ -34,7 +34,7 @@ a {
 
 /* När muspekaren hovrar över länken */
 a:hover {
-    background-color: #0056b3; /* Ändra bakgrundsfärg vid hover */
+    background-color: #b9c5d2; /* Ändra bakgrundsfärg vid hover */
 }
 
 /* Tabellstyling */
@@ -65,5 +65,43 @@ tr:nth-child(even) {
 
 /* När muspekaren hovrar över en rad */
 tr:hover {
-    background-color: #2a0864; /* Ändra bakgrundsfärg vid hover */
+    background-color: #d1ccdb; /* Ändra bakgrundsfärg vid hover */
+}
+
+/* Grundläggande styling för alla knappar */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling för "Redigera"-knappen */
+.edit-btn {
+    background-color: #007bff; /* Blå bakgrund */
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3; /* Mörkare blå vid hover */
+}
+
+/* Styling för "Radera"-knappen */
+.delete-btn {
+    background-color: #dc3545; /* Röd bakgrund */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #a71d2a; /* Mörkare röd vid hover */
+}
+
+/* Alternativ styling för knappar inuti en tabell */
+table td .btn {
+    margin: 0 5px;
 }

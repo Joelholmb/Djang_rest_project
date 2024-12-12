@@ -1,0 +1,11 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<h1>Radera bok</h1>
+<p>Är du säker på att du vill radera "{{ book.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn delete-btn">Ja, radera</button>
+    <a href="{% url 'book-list' %}" class="btn edit-btn">Nej, avbryt</a>
+</form>
+{% endblock %}

@@ -66,3 +66,10 @@ def edit_book(request, pk):
 
     # Om GET, rendera formuläret med befintliga värden
     return render(request, 'books/edit_book.html', {'book': book})
+
+def confirm_delete_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == 'POST':
+        book.delete()
+        return redirect('book-list')
+    return render(request, 'books/confirm_delete.html', {'book': book})

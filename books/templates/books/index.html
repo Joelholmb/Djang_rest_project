@@ -17,11 +17,7 @@
     {% for book in books %}
     <li>
         <a href="{% url 'book-detail' pk=book.id %}">{{ book.title }}</a> av {{ book.author }}
-        | <a href="{% url 'edit-book' pk=book.id %}">Redigera</a>
-        | <form action="{% url 'delete-book' pk=book.id %}" method="post" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera</button>
-          </form>
+        |
     </li>
     {% empty %}
     <p>Inga böcker finns tillgängliga.</p>

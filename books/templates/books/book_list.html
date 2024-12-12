@@ -25,12 +25,13 @@
             <td>{{ book.published_date }}</td>
             <td>{{ book.isbn }}</td>
             <td>
-                <a href="{% url 'edit-book' pk=book.id %}">Redigera</a>
+                <a href="{% url 'edit-book' pk=book.id %}" class="btn edit-btn">Redigera</a>
                 <form action="{% url 'delete-book' pk=book.id %}" method="post" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera</button>
+                    <button type="submit" class="btn delete-btn" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera</button>
                 </form>
             </td>
+            
         </tr>
         {% empty %}
         <tr>
