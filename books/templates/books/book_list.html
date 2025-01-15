@@ -3,43 +3,43 @@
 {% block title %}Alla böcker{% endblock %}
 
 {% block content %}
-<h1>Alla böcker</h1>
+<div class="booklist-container">
+    <h1 class="main-title">Alla böcker</h1>
+    <p class="description">Här är en lista över alla böcker i databasen. Klicka på titeln för att se detaljer eller redigera/radera.</p>
 
-<table>
-    <thead>
-        <tr>
-            <th>Titel</th>
-            <th>Författare</th>
-            <th>Beskrivning</th>
-            <th>Publiceringsdatum</th>
-            <th>ISBN</th>
-            <th>Åtgärder</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for book in books %}
-        <tr>
-            <td><a href="{% url 'book-detail' pk=book.id %}">{{ book.title }}</a></td>
-            <td>{{ book.author }}</td>
-            <td>{{ book.description }}</td>
-            <td>{{ book.published_date }}</td>
-            <td>{{ book.isbn }}</td>
-            <td>
-                <a href="{% url 'edit-book' pk=book.id %}" class="btn edit-btn">Redigera</a>
-                <form action="{% url 'delete-book' pk=book.id %}" method="post" style="display:inline;">
-                    {% csrf_token %}
-                    <button type="submit" class="btn delete-btn" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera</button>
-                </form>
-            </td>
-            
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="6">Inga böcker finns tillgängliga.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<a href="{% url 'create-book' %}">Skapa ny bok</a>
+    <table class="book-table">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Författare</th>
+                <th>Beskrivning</th>
+                <th>Publiceringsdatum</th>
+                <th>ISBN</th>
+                <th>Åtgärder</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td><a href="{% url 'book-detail' pk=book.id %}" class="table-link">{{ book.title }}</a></td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.published_date }}</td>
+                <td>{{ book.isbn }}</td>
+                <td class="actions">
+                    <a href="{% url 'edit-book' pk=book.id %}" class="btn edit-btn">Redigera</a>
+                    <form action="{% url 'delete-book' pk=book.id %}" method="post" class="inline-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn delete-btn" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera</button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="empty-message">Inga böcker finns tillgängliga.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

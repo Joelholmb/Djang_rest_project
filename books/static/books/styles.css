@@ -1,107 +1,674 @@
 /* Global styling för hela sidan */
 body {
-    font-family: Arial, sans-serif; /* Font för text */
-    background-color: #6161d6; /* Bakgrundsfärg */
-    color: #333; /* Standard textfärg */
-    margin: 0; /* Ingen marginal runt kroppen */
-    padding: 0; /* Ingen padding runt kroppen */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #aa72e5, #88a6da); /* Bakgrundsfärg */
+    color: #333;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Gör att elementen läggs vertikalt */
+    min-height: 100vh; /* Minsta höjd för att täcka hela fönstret */
 }
 
-/* H1-rubriker (största rubriken) */
-h1 {
-    color: #333; /* Textfärg för rubriker */
-    font-size: 24px; /* Storlek på rubriken */
-    margin-bottom: 20px; /* Utrymme under rubriken */
+/* Huvudinnehåll */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Paragrafer (vanlig text) */
-p {
-    font-size: 18px; /* Storlek på text */
-    line-height: 1.6; /* Radavstånd */
-    margin: 10px 0; /* Utrymme ovan och under texten */
+/* Container för startsidan */
+.start-container {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling för länkar */
-a {
-    display: inline-block; /* Gör länkar till knappliknande element */
-    margin-top: 20px; /* Utrymme ovanför länken */
-    text-decoration: none; /* Ta bort understrykning */
-    color: #ffffff; /* Textfärg */
-    background-color: #007BFF; /* Bakgrundsfärg */
-    padding: 10px 15px; /* Inre marginaler för knappen */
-    border-radius: 5px; /* Rundade hörn */
+/* Huvudrubrik */
+.main-title {
+    color: #6a11cb;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-/* När muspekaren hovrar över länken */
-a:hover {
-    background-color: #b9c5d2; /* Ändra bakgrundsfärg vid hover */
+/* Beskrivningstext */
+.description {
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-/* Tabellstyling */
-table {
-    width: 100%; /* Tabell breddas till hela sidan */
-    border-collapse: collapse; /* Ta bort dubbel kantlinje */
-    margin: 20px 0; /* Utrymme ovan och under tabellen */
-    font-size: 18px; /* Textstorlek i tabellen */
-    text-align: left; /* Justera text till vänster */
+/* Action-knappar för att visa listor */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start; /* Justerar knappar åt vänster */
 }
 
-/* Styling för celler (kolumner och rader) */
-th, td {
-    border: 1px solid #ddd; /* Tunn kantlinje runt cellerna */
-    padding: 8px; /* Inre marginal i cellerna */
-}
-
-/* Rubrikceller (översta raden i tabellen) */
-th {
-    background-color: #f4f4f4; /* Ljus bakgrund för rubriker */
-    color: #333; /* Textfärg för rubriker */
-}
-
-/* Varannan rad i tabellen (för kontrast) */
-tr:nth-child(even) {
-    background-color: #f9f9f9; /* Ljusgrå bakgrund */
-}
-
-/* När muspekaren hovrar över en rad */
-tr:hover {
-    background-color: #d1ccdb; /* Ändra bakgrundsfärg vid hover */
-}
-
-/* Grundläggande styling för alla knappar */
+/* Grundläggande styling för knappar */
 .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover-effekt för knappar */
+.btn:hover {
+    background: linear-gradient(135deg, #5a0fba, #1d63e1);
+}
+
+
+
+/* Footer text styling */
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff; /* Vit textfärg */
+    text-align: center;
+}
+
+
+
+/* Inloggningsruta */
+.login-container {
+    max-width: 400px;
+    width: 100%; /* För mindre skärmar */
+    background-color: #ffffff; /* Vit bakgrund */
+    padding: 30px;
+    border-radius: 10px; /* Rundade hörn */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Starkare skugga */
+    text-align: center; /* Centrerar innehåll */
+    color: #333; /* Textfärg */
+}
+
+/* Rubrik för inloggning */
+.login-container h1 {
+    font-size: 28px;
+    color: #8c64b5; /* Mjuk lila färg */
+    margin-bottom: 20px;
+}
+
+/* Formulärfält */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd; /* Neutral kant */
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+/* Fokus-effekt för inputfält */
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #2575fc; /* Blå kant vid fokus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.5); /* Lätt blå skugga */
+}
+
+/* Logga in-knapp */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Färgglad bakgrund */
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+/* Hover-effekt för knappen */
+.login-container button:hover {
+    background: linear-gradient(135deg, #5a0fba, #1d63e1); /* Mörkare gradient */
+}
+
+/* Felmeddelanden */
+.login-container .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Footer-text */
+.login-container .footer-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-container .footer-text a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.login-container .footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Logga ut-knapp styling */
+.logout-btn {
     display: inline-block;
     padding: 10px 15px;
     font-size: 16px;
     text-align: center;
-    text-decoration: none;
+    color: white; /* Vit text */
+    background-color: #dc3545; /* Röd bakgrund */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
 }
 
-/* Styling för "Redigera"-knappen */
-.edit-btn {
-    background-color: #007bff; /* Blå bakgrund */
-    color: white;
-}
-
-.edit-btn:hover {
-    background-color: #0056b3; /* Mörkare blå vid hover */
-}
-
-/* Styling för "Radera"-knappen */
-.delete-btn {
-    background-color: #dc3545; /* Röd bakgrund */
-    color: white;
-}
-
-.delete-btn:hover {
+/* Hover-effekt för logga ut-knappen */
+.logout-btn:hover {
     background-color: #a71d2a; /* Mörkare röd vid hover */
 }
 
-/* Alternativ styling för knappar inuti en tabell */
-table td .btn {
-    margin: 0 5px;
+
+/* reset-knapp styling */
+.reset-btn {
+    display: inline-block;
+    padding: 5px 5px; /* Mindre padding för en kompakt knapp */
+    font-size: 14px; /* Mindre textstorlek */
+    text-align: center;
+    color: white; /* Vit text */
+    background-color: #6c757d; /* Neutral grå bakgrund */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Mindre avstånd ovanför knappen */
+    transition: background-color 0.3s ease;
+    font-weight: normal; /* Normal vikt på texten */
+}
+
+/* Hover-effekt för reset-knappen */
+.reset-btn:hover {
+    background-color: #5a6268; /* Mörkare grå vid hover */
+}
+
+
+/* Container för boklistan */
+.booklist-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Huvudrubrik */
+.main-title {
+    color: #6a11cb;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Beskrivningstext */
+.description {
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Boktabell */
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.book-table th {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.book-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    color: #333;
+}
+
+.book-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.book-table tr:hover {
+    background: #e6e6e6;
+}
+
+/* Länk i tabellen */
+.table-link {
+    color: #6a11cb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.table-link:hover {
+    text-decoration: underline;
+}
+
+/* Knappar i tabellen */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Grundläggande styling för knappar */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #5a0fba, #1d63e1);
+}
+
+/* Redigera-knapp */
+.edit-btn {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #218838, #1c7430);
+}
+
+/* Radera-knapp */
+.delete-btn {
+    background: linear-gradient(135deg, #dc3545, #a71d2a);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #a71d2a, #842029);
+}
+
+/* Tommeddelande i tabellen */
+.empty-message {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    padding: 20px;
+}
+
+/* Container för skapa bok */
+.create-book-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Huvudrubrik */
+.main-title {
+    color: #6a11cb;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Beskrivningstext */
+.description {
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Formulär */
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Avstånd mellan formulärfält */
+}
+
+/* Formulärgrupper */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiketter */
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Textfält och textarea */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+/* Fokus-effekt för fält */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+}
+
+/* Textarea höjd */
+.form-group textarea {
+    height: 100px;
+    resize: vertical; /* Tillåt storleksändring vertikalt */
+}
+
+/* Knapp för skapa bok */
+.create-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+/* Hover-effekt för skapa bok-knappen */
+.create-btn:hover {
+    background: linear-gradient(135deg, #5a0fba, #1d63e1);
+}
+
+
+/* Global styling för alla knappar */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Snyggare tillbaka till startsidan-knappen */
+.home-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+.home-btn:hover {
+    background: linear-gradient(135deg, #5a0fba, #1d63e1);
+    box-shadow: 0 4px 12px rgba(90, 15, 186, 0.3);
+}
+
+/* Snyggare logga ut-knapp */
+.logout-btn {
+    background: linear-gradient(135deg, #ff4b1f, #ff9068);
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #e03e15, #ff7856);
+    box-shadow: 0 4px 12px rgba(255, 72, 31, 0.3);
+}
+
+/* Redigera bok container */
+.edit-book-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Rubrik för redigera bok */
+.main-title {
+    font-size: 28px;
+    color: #6a11cb;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Beskrivning för redigera bok */
+.description {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulär för redigera bok */
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Formulärgrupper */
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+    outline: none;
+}
+
+/* Knappgrupp */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Spara ändringar-knapp */
+.save-btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+.save-btn:hover {
+    background: linear-gradient(135deg, #5a0fba, #1d63e1);
+    box-shadow: 0 4px 12px rgba(90, 15, 186, 0.3);
+}
+
+/* Avbryt-knapp */
+.cancel-btn {
+    background: linear-gradient(135deg, #757575, #bcbcbc);
+    color: #fff;
+}
+
+.cancel-btn:hover {
+    background: linear-gradient(135deg, #636363, #9e9e9e);
+    box-shadow: 0 4px 12px rgba(115, 115, 115, 0.3);
+}
+
+/* Container för bokdetaljer */
+.book-detail-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Textstyling för bokdetaljer */
+.book-detail-container p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Grupp för knappar */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+
+
+
+/* Styling för "Tillbaka till startsidan"-knappen */
+.home-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    color: white; /* Vit text */
+    text-decoration: none;
+    background: linear-gradient(135deg, #4caf50, #2e7d32); /* Grön gradient */
+    border-radius: 5px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-btn:hover {
+    background: linear-gradient(135deg, #388e3c, #1b5e20);
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
+}
+
+/* Styling för huvudrubrik och navigation */
+.site-title {
+    background: linear-gradient(135deg, #6a11cb, #d493d8); /* Gradient bakgrund */
+    color: white;
+    display: flex; /* Gör att rubrik och knappar ligger på samma rad */
+    align-items: center; /* Vertikal centrering */
+    justify-content: center; /* Centrerar innehållet horisontellt */
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtil skugga */
+    position: relative;
+    z-index: 1; /* Håller titeln över andra element */
+    overflow: hidden; /* För att hantera effekter */
+}
+
+/* Placera knapparna absolut */
+.site-title .home-btn {
+    position: absolute;
+    left: 20px; /* Avstånd från vänstra kanten */
+    top: 50%;
+    transform: translateY(-50%); /* Vertikal centrering */
+}
+
+.site-title .logout-btn {
+    position: absolute;
+    right: 20px; /* Avstånd från högra kanten */
+    top: 50%;
+    transform: translateY(-50%); /* Vertikal centrering */
+}
+
+/* Effekt för rubriken */
+.site-title h1 {
+    font-size: 36px; /* Elegant och modern rubrikstorlek */
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase; /* Versaler */
+    letter-spacing: 2px; /* Litet mellanrum mellan bokstäver */
+    background: linear-gradient(135deg, #ce7cde, #ff9068); /* Gradient för text */
+    -webkit-background-clip: text; /* Klipper gradienten till texten */
+    -webkit-text-fill-color: transparent; /* Gör gradientbakgrunden synlig */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtil skugga */
+    animation: glow 3s infinite alternate; /* Glödande animation */
+}
+
+/* Animation för glödande effekt */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(246, 244, 248, 0.5), 0 0 10px rgba(106, 17, 203, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(106, 17, 203, 0.7), 0 0 30px rgba(106, 17, 203, 0.5);
+    }
+}
+
+/* Knappar i navigationen */
+.site-title .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #9e5ebc, #b684d7); /* Gradient för knappar */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover-effekt för knappar */
+.site-title .btn:hover {
+    background: linear-gradient(135deg, #bdaad1, #a35bd0); /* Mörkare färg vid hover */
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
+    transform: translateY(-20px); /* Subtil lyfteffekt */
+}
+
+/* "Logga ut"-knappen */
+.logout-btn {
+    background: linear-gradient(135deg, #ff4b1f, #ff9068);
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #e03e15, #ff7856);
+    box-shadow: 0 4px 12px rgba(255, 72, 31, 0.3);
 }

@@ -1,26 +1,15 @@
 {% extends 'books/base.html' %}
 
-{% block title %}Startsida{% endblock %}
+{% block title %}Välkommen{% endblock %}
 
 {% block content %}
-<h1>Välkommen till startsidan!</h1>
-<p>Välj en bok eller skapa en ny!</p>
-
-<h2>Funktioner</h2>
-<ul>
-    <li><a href="{% url 'book-list' %}">Se alla böcker</a></li>
-    <li><a href="{% url 'create-book' %}">Skapa en ny bok</a></li>
-</ul>
-
-<h2>Böcker</h2>
-<ul>
-    {% for book in books %}
-    <li>
-        <a href="{% url 'book-detail' pk=book.id %}">{{ book.title }}</a> av {{ book.author }}
-        |
-    </li>
-    {% empty %}
-    <p>Inga böcker finns tillgängliga.</p>
-    {% endfor %}
-</ul>
+<div class="start-container">
+    <p class="description">Välj en bok eller skapa en ny!</p>
+    
+    <div class="action-buttons">
+        <a href="{% url 'book-list' %}" class="btn">Se alla böcker</a>
+        <a href="{% url 'create-book' %}" class="btn">Skapa en ny bok</a>
+    </div>
+</div>
 {% endblock %}
+

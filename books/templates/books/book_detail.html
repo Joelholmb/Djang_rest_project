@@ -3,19 +3,23 @@
 {% block title %}Bokdetaljer{% endblock %}
 
 {% block content %}
-<h1>{{ book.title }}</h1>
-<p><strong>Författare:</strong> {{ book.author }}</p>
-<p><strong>Beskrivning:</strong> {{ book.description }}</p>
-<p><strong>Publiceringsdatum:</strong> {{ book.published_date }}</p>
-<p><strong>ISBN:</strong> {{ book.isbn }}</p>
-
-<a href="{% url 'edit-book' pk=book.id %}" class="btn edit-btn">Redigera bok</a>
-
-<form action="{% url 'delete-book' pk=book.id %}" method="post" style="margin-top: 20px;">
-    {% csrf_token %}
-    <button type="submit" class="btn delete-btn" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera bok</button>
-</form>
-
-
-<a href="{% url 'book-list' %}">Tillbaka till alla böcker</a>
+<div class="container book-detail-container">
+    <h1 class="main-title">{{ book.title }}</h1>
+    <div class="description">
+        <p><strong>Författare:</strong> {{ book.author }}</p>
+        <p><strong>Beskrivning:</strong> {{ book.description }}</p>
+        <p><strong>Publiceringsdatum:</strong> {{ book.published_date }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    </div>
+    
+    <div class="button-group">
+        <a href="{% url 'edit-book' pk=book.id %}" class="btn edit-btn">Redigera bok</a>
+        <form action="{% url 'delete-book' pk=book.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn delete-btn" onclick="return confirm('Är du säker på att du vill radera denna bok?')">Radera bok</button>
+        </form>
+        <a href="{% url 'book-list' %}" class="btn home-btn">Tillbaka till alla böcker</a>
+    </div>
+</div>
 {% endblock %}
+

@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django Project{% endblock %}</title>
     {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'books/styles.css' %}">
-
+    <link rel="stylesheet" href="{% static 'books/styles.css' %}">
 </head>
 <body>
-    <a href="{% url 'index' %}">Tillbaka till startsidan</a>
-    {% block content %}{% endblock %}
+    <!-- Titel och navigation -->
+    <div class="site-title">
+        <h1>Digitala Bokhyllan</h1>
+        <nav class="navigation-bar">
+            {% if user.is_authenticated %}
+                <a href="{% url 'index' %}" class="btn home-btn">Tillbaka till startsidan</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Logga ut</button>
+                </form>
+            {% endif %}
+        </nav>
+    </div>
+    <main>
+        {% block content %}
+        <!-- Innehållet för den specifika sidan -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Django Project</p>
+    </footer>
 </body>
 </html>

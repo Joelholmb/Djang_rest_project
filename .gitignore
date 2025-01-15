@@ -1,0 +1,30 @@
+# Bytekompilerade filer
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtuell miljö
+venv/
+env/
+
+# Django-migreringar
+*.sqlite3
+db.sqlite3
+
+# Media och uppladdade filer
+media/
+
+# Logs
+*.log
+
+# IDE-specifika filer
+.vscode/
+.idea/
+
+# Systemspecifika filer
+.DS_Store
+Thumbs.db
+
+# Static och compiled filer
+staticfiles/
+node_modules/

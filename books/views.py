@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
+from django.contrib.auth.decorators import login_required
 
 class BookListCreateView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
@@ -12,9 +13,9 @@ class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
+@login_required(login_url='/login/')
 def index(request):
-    books = Book.objects.all()
-    return render(request, 'books/index.html', {'books': books})
+    return render(request, 'books/index.html', {})
 
 def create_book(request):
     if request.method == 'POST':

@@ -1,0 +1,25 @@
+{% extends 'books/base.html' %}
+
+{% block title %}Välkommen{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h1>Logga in</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Användarnamn" required>
+        <input type="password" name="password" placeholder="Lösenord" required>
+        <button type="submit">Logga in</button>
+    </form>
+    {% if form.errors %}
+        <p class="error-message">Felaktigt användarnamn eller lösenord. Försök igen.</p>
+    {% endif %}
+    <div class="footer-text">
+        <form action="#" method="get"> <!-- Lägg till rätt URL -->
+            <button type="submit" class="reset-btn">Glömt lösenord?</button>
+        </form>
+    </div>    
+    
+</div>
+{% endblock %}
+
